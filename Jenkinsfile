@@ -32,6 +32,8 @@ pipeline {
         always {
             sh 'docker ps -q --filter "ancestor=$DOCKER_IMAGE" | xargs -r docker stop'
             sh 'docker ps -a -q --filter "ancestor=$DOCKER_IMAGE" | xargs -r docker rm'
+            sh 'docker stop nodejs-app-container'
+            sh 'docker rm nodejs-app-container'
         }
     }
 }
