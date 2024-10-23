@@ -19,13 +19,12 @@ pipeline {
                     sh 'docker build -t $DOCKER_IMAGE .'
                 }
             }
-        }}
         }
-        stage('Construir imagen Docker') {
+
+        stage('Ejecutar contenedor Docker') {
             steps {
                 script {
-                        // Construir la imagen Docker a partir del Dockerfile en el directorio actual
-                    sh 'docker build -t $DOCKER_IMAGE .'
+                    sh 'docker run -d -p 8080:8080 $DOCKER_IMAGE'
                 }
             }
         }
