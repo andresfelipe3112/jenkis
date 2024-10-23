@@ -5,11 +5,11 @@ pipeline {
         DOCKER_IMAGE = "nodejs-app:latest"
     }
 
-
     stages {
         stage('Clonar el repositorio') {
             steps {
                 git 'https://github.com/andresfelipe3112/jenkis'
+                sh 'ls -la' // Agregado para listar archivos
             }
         }
 
@@ -21,7 +21,6 @@ pipeline {
             }
         }
         
-
         stage('Ejecutar pruebas') {
             steps {
                 echo 'No se han definido pruebas aún'
