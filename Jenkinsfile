@@ -20,14 +20,6 @@ pipeline {
                 }
             }
         }
-
-        stage('Ejecutar contenedor Docker') {
-            steps {
-                script {
-                    sh 'docker run -d -p 8080:8080 $DOCKER_IMAGE'
-                }
-            }
-        }
         
 
         stage('Ejecutar pruebas') {
